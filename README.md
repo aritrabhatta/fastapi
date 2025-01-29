@@ -20,6 +20,38 @@
 </p>
 
 ---
+vehicle_management/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── database.py
+│   ├── config.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── vehicle.py
+│   │   ├── driver.py
+│   │   ├── maintenance.py
+│   │   └── trip.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── vehicle.py
+│   │   ├── driver.py
+│   │   ├── maintenance.py
+│   │   └── trip.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── vehicle.py
+│   │   ├── driver.py
+│   │   ├── maintenance.py
+│   │   └── trip.py
+│   └── utils/
+│       ├── __init__.py
+│       └── helpers.py
+├── tests/
+├── alembic/
+├── requirements.txt
+├── Dockerfile
+└── docker-compose.yml
 
 **Documentation**: <a href="https://fastapi.tiangolo.com" target="_blank">https://fastapi.tiangolo.com</a>
 

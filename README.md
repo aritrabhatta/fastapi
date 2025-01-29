@@ -20,38 +20,126 @@
 </p>
 
 ---
-vehicle_management/
+# Backend Project Structure
+
+This document outlines the structure and organization of the backend service for our FastAPI-based application.
+
+## Project Layout
+
+```
+backend/
 ├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── database.py
-│   ├── config.py
+│   ├── auth/
+│   │   └── auth.py          # Authentication logic
+│   ├── core/
+│   │   └── config.py        # Core configurations
+│   ├── db/
+│   │   ├── db.py           # Database connection
+│   │   └── session.py      # Database session management
 │   ├── models/
-│   │   ├── __init__.py
-│   │   ├── vehicle.py
-│   │   ├── driver.py
-│   │   ├── maintenance.py
-│   │   └── trip.py
+│   │   └── models.py       # Database models
+│   ├── routers/
+│   │   └── user.py         # API routes
 │   ├── schemas/
-│   │   ├── __init__.py
-│   │   ├── vehicle.py
-│   │   ├── driver.py
-│   │   ├── maintenance.py
-│   │   └── trip.py
-│   ├── routes/
-│   │   ├── __init__.py
-│   │   ├── vehicle.py
-│   │   ├── driver.py
-│   │   ├── maintenance.py
-│   │   └── trip.py
-│   └── utils/
-│       ├── __init__.py
-│       └── helpers.py
-├── tests/
-├── alembic/
-├── requirements.txt
-├── Dockerfile
-└── docker-compose.yml
+│   │   └── schemas.py      # Pydantic schemas
+│   ├── scheduler/
+│   │   └── scheduler.py    # Automated tasks
+│   ├── utils/
+│   │   └── email_utils.py  # Email utilities
+│   ├── __init__.py
+│   └── main.py            # FastAPI application
+├── .env.example           # Environment variables example
+├── .gitignore
+├── app.py                # Application entry point
+├── docker-compose.yml    # Docker compose configuration
+├── Dockerfile           # Docker configuration
+├── README.md
+└── requirements.txt     # Python dependencies
+```
+
+## Directory Structure Details
+
+### `/app`
+Main application package containing all the application logic.
+
+#### `/app/auth`
+- `auth.py`: Contains authentication mechanisms, JWT handling, and security utilities.
+
+#### `/app/core`
+- `config.py`: Application configurations, environment variables, and global settings.
+
+#### `/app/db`
+- `db.py`: Database connection setup and configuration
+- `session.py`: Database session management and connection pooling
+
+#### `/app/models`
+- `models.py`: SQLAlchemy ORM models defining the database structure
+
+#### `/app/routers`
+- `user.py`: API route definitions and endpoint handlers
+
+#### `/app/schemas`
+- `schemas.py`: Pydantic models for request/response validation
+
+#### `/app/scheduler`
+- `scheduler.py`: Background task scheduling and automated job management
+
+#### `/app/utils`
+- `email_utils.py`: Email handling utilities and templates
+
+### Root Directory Files
+
+- `app.py`: Application entry point and server initialization
+- `requirements.txt`: Python package dependencies
+- `.env.example`: Template for environment variables
+- `Dockerfile`: Container build instructions
+- `docker-compose.yml`: Multi-container Docker configuration
+
+## Setup Instructions
+
+1. Clone the repository
+2. Copy `.env.example` to `.env` and configure your environment variables
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Docker Setup
+
+Build and run the application using Docker:
+
+```bash
+docker-compose up --build
+```
+
+## Development Workflow
+
+1. Make sure all dependencies are installed
+2. Set up your `.env` file
+3. Run the development server:
+```bash
+uvicorn app.main:app --reload
+```
+
+## Contributing
+
+When adding new features:
+
+1. Create appropriate models in `/app/models`
+2. Define schemas in `/app/schemas`
+3. Implement business logic in relevant modules
+4. Add routes in `/app/routers`
+5. Update tests accordingly
+
+## Best Practices
+
+- Keep modules focused and single-responsibility
+- Document new functions and modules
+- Follow FastAPI conventions for route handling
+- Use type hints throughout the codebase
+- Maintain separation of concerns between layers
+
+Would you like me to add any specific details about certain components or expand any section?
 
 **Documentation**: <a href="https://fastapi.tiangolo.com" target="_blank">https://fastapi.tiangolo.com</a>
 

@@ -22,39 +22,7 @@
 ---
 # Backend Project Structure
 
-This document outlines the structure and organization of the backend service for our FastAPI-based application.
 
-## Project Layout
-
-```
-backend/
-├── app/
-│   ├── auth/
-│   │   └── auth.py          # Authentication logic
-│   ├── core/
-│   │   └── config.py        # Core configurations
-│   ├── db/
-│   │   ├── db.py           # Database connection
-│   │   └── session.py      # Database session management
-│   ├── models/
-│   │   └── models.py       # Database models
-│   ├── routers/
-│   │   └── user.py         # API routes
-│   ├── schemas/
-│   │   └── schemas.py      # Pydantic schemas
-│   ├── scheduler/
-│   │   └── scheduler.py    # Automated tasks
-│   ├── utils/
-│   │   └── email_utils.py  # Email utilities
-│   ├── __init__.py
-│   └── main.py            # FastAPI application
-├── .env.example           # Environment variables example
-├── .gitignore
-├── app.py                # Application entry point
-├── docker-compose.yml    # Docker compose configuration
-├── Dockerfile           # Docker configuration
-├── README.md
-└── requirements.txt     # Python dependencies
 ```
 
 ## Directory Structure Details
